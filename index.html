@@ -4,25 +4,32 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Hacktoberfest Status</title>
+    <title> </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+    <script type="text/javascript" src="javascript.js"></script>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+
+
 </head>
 
 <body>
     <div class="container">
         <div class="row">
         	<div class="col-md-12">
-        		<h2 class="text-center">Check Your Hacktoberfest 2017 Status</h2>
+        		<h2 class="text-center"></h2>
         	</div>
         </div>
         <section>
             <div class="row justify-content-center">
             	 <div class="col-lg-4 col-md-6 col-sm-8">
             	    <div class="input-group text-center">
-            	      <input type="text" class="form-control" placeholder="Enter your username" aria-label="Search for...">
+            	      <input type="text" id="login" class="form-control" placeholder="Enter your username" aria-label="Search for...">
             	      <span class="input-group-btn">
-            	        <button class="btn btn-secondary" type="button">Go!</button>
+            	        <button onclick="checkPR()" class="btn btn-secondary" type="button">Go!</button>
             	      </span>
             	    </div>
             	  </div>
@@ -37,6 +44,31 @@
     	<h4 class="text-center">Made By Rohit Swami</h4>
     </footer>
 </div>
+
+
+
+
+<script>
+function checkPR(){
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+        console.log(myObj.user.id);
+        document.getElementById("result").innerHTML = myObj.items;
+    }
+};
+
+var text = $('#login').val();
+var url = "https://api.github.com/search/issues?q=type:pr+author:%22"+text+"%22+-user:%22"+text+"%22&sort=created&order=desc&per_page=32"
+console.log(url)
+
+xmlhttp.open("GET", url , true);
+xmlhttp.send();
+};
+</script>
+
+
 </body>
 
 </html>
