@@ -1,4 +1,9 @@
-<h1>Hacktoberfest Status</h1>
+# Hacktoberfest Status
+
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.png?v=103)](https://opensource.org/licenses/mit-license.php)
+
+Website: [rowhitswami.github.io](https://www.github.com/rowhitswami/rowhitswami.github.io/)
 
 ### What is Hacktoberfest 2017?
 Hacktoberfest is a month-long celebration of open source software in partnership with Github. Support open source and earn a limited edition T-shirt. To get a shirt, you must make four pull requests between October 1–31 in any timezone. Pull requests can be to any public repo on GitHub, not just the ones that are highlighted on [Hacktoberfest](https://hacktoberfest.digitalocean.com/).
