@@ -55,16 +55,16 @@ xmlhttp.onreadystatechange = function() {
              
              if (myObj.items.length > 0) {
                  document.getElementById("result").innerHTML = `<span><img src=`+myObj.items[0].user.avatar_url+`width=80 height=80 style='border-radius:500px;'></span>
-                 <h4><strong><a href=`+myObj.items[0].user.login+`>`+ myObj.items[0].user.login +`</a></h4>
+                 <h4><strong><a href=`+myObj.items[0].user.html_url+`>`+ myObj.items[0].user.login +`</a></h4>
                  `
                  
                  document.getElementById("result").innerHTML += '<h2>Items</h2><br>'
                  for(var i=0; i < myObj.items.length; i++){
                      document.getElementById("result").innerHTML += `
                      <p>--------------------------------------------</p>
-                     <p>Item : `+ i +`</p>
-                     <p>number : `+ myObj.items[i].number +`</p>
-                     <p>title : `+ myObj.items[i].title +`</p>
+                     <p>Title : <a href="`+myObj.items[i].html_url+`">`+ myObj.items[i].title +`</a></p>
+                     <p>State : `+ myObj.items[i].state +`</p>
+                     
                      `
                  }
              }
