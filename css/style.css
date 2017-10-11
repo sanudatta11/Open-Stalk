@@ -1,0 +1,58 @@
+body {
+  background-image: radial-gradient(circle, #3241a6 0, #202a6b 120%);
+  padding: 5em !important;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif !important;
+  margin-top: .5em !important;
+  font-weight: 700;
+  font-size: 3.5em !important;
+  color: #fff !important;
+  animation: fadeIn 3s ease-in;
+}
+
+h5 {
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 700 !important;
+  font-size: 1em !important;
+  color: #ccc !important;
+  animation: fadeIn 5s ease-in;
+}
+
+p {
+  color: #fff !important;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  50% {opacity: 0.5;}
+  100% {opacity: 1;}
+}
+
+.input-group {
+   margin: 3em 0 !important;
+}
+
+.form-control {
+    padding: 0.7em 1em !important;
+    font-size: 1.2em !important;
+    color: #fff !important;
+    background-color: rgba(225, 225, 225, 0.2) !important;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+}
+
+.btn {
+  padding: 0.9em 1em !important;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #ff9566 !important;
+    border-color: #ff9566 !important;
+}
+
+::placeholder {
+  color: #ff9566 !important;
+}

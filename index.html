@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Check Hacktoberfest Status </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
@@ -34,7 +36,7 @@
         </section>
 
         <div id="result">
-        	
+
         </div>
 
     <footer>
@@ -51,7 +53,7 @@ var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var myObj = JSON.parse(this.responseText);
-             
+
              if (myObj.total_count == 0) {
                 document.getElementById("result").innerHTML = ` <br> <br> <h4>Oops..!! It looks like you haven't made any Pull Request in Hacktoberfest 2017</h4><br><h6>Want to contribute to Open Source? Find projects with your interest here: <a href="https://github.com/search?q=label:hacktoberfest+state:open+type:issue">Hacktoberfest 2017 Projects</h6>`
              }
@@ -63,19 +65,19 @@ xmlhttp.onreadystatechange = function() {
                  document.getElementById("result").innerHTML = `<span><img src=`+myObj.items[0].user.avatar_url+`width=80 height=80 style='border-radius:500px;'></span>
                  <h4><strong><a href=`+myObj.items[0].user.html_url+`>`+ myObj.items[0].user.login +`</a></h4>
                  `
-                 
+
                  document.getElementById("result").innerHTML += '<h2>Items</h2><br>'
                  for(var i=0; i < myObj.items.length; i++){
                      document.getElementById("result").innerHTML += `
                      <p>--------------------------------------------</p>
                      <p>Title : <a href="`+myObj.items[i].html_url+`">`+ myObj.items[i].title +`</a></p>
                      <p>State : `+ myObj.items[i].state +`</p>
-                     
+
                      `
                  }
              }
 
-             
+
 
 }
 }
