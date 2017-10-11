@@ -38,7 +38,7 @@
         </div>
 
     <footer>
-    	<h4 class="text-center">Made By Rohit Swami</h4>
+    	<h5 class="text-center">Made with &#10084; by Rohit Swami</h5>
     </footer>
 </div>
 
@@ -51,9 +51,15 @@ var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var myObj = JSON.parse(this.responseText);
-             console.log(myObj.items[0].user.login);
              
-             if (myObj.items.length > 0) {
+             if (myObj.total_count == 0) {
+                document.getElementById("result").innerHTML = ` <br> <br> <h4>Oops..!! It looks like you haven't made any Pull Request in Hacktoberfest 2017</h4><br><h6>Want to contribute to Open Source? Find projects with your interest here: <a href="https://github.com/search?q=label:hacktoberfest+state:open+type:issue">Hacktoberfest 2017 Projects</h6>`
+             }
+
+
+
+             else {
+
                  document.getElementById("result").innerHTML = `<span><img src=`+myObj.items[0].user.avatar_url+`width=80 height=80 style='border-radius:500px;'></span>
                  <h4><strong><a href=`+myObj.items[0].user.html_url+`>`+ myObj.items[0].user.login +`</a></h4>
                  `
@@ -68,6 +74,7 @@ xmlhttp.onreadystatechange = function() {
                      `
                  }
              }
+
              
 
 }
