@@ -37,12 +37,11 @@
         </div>
 
     <footer>
-    	<h4 class="text-center">Made By Rohit Swami</h4>
+    	<h5 class="text-center">Made with &#10084; by Rohit Swami</h5>
     </footer>
 </div>
 
 <script>
-
 function getUserAndPR() {
   var user = document.getElementById('login').value
   getUser(user, function(userObj) {
@@ -116,7 +115,7 @@ function generateElements(userObj, prLists) {
   if (prLists.length <= 0) {
     // generate motivational text here so that users try contributing!
     // put project github url here
-    itemStr = '<br><span>Hey, we don\'t see any PR from your account!<br>You may try contributing to <a href="https://github.com/rowhitswami/rowhitswami.github.io">this project</a> if you are interested</span>'
+    itemStr = '<br> <br> <h4>Oops..!! It looks like you haven\'t made any Pull Request in Hacktoberfest 2017</h4><br><h6>Want to contribute to Open Source? Find projects with your interest here: <a href="https://github.com/search?q=label:hacktoberfest+state:open+type:issue">Hacktoberfest 2017 Projects</h6>';
   } else {
     itemStr += `<h2>Items</h2>`
     for (var i = 0; i < prLists.length; i++) {
