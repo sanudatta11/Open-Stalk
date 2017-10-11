@@ -52,11 +52,29 @@
 function checkPR(){
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var myObj = JSON.parse(this.responseText);
-        console.log(myObj.user.id);
-        document.getElementById("result").innerHTML = myObj.items;
-    }
+        if (this.readyState == 4 && this.status == 200) {
+            var myObj = JSON.parse(this.responseText);
+            console.log(myObj);
+            
+            if (myObj.items.length > 0) {
+                document.getElementById("result").innerHTML = `
+                <h4><strong>Username : </strong>`+ myObj.items[0].user.login +`<h4>
+                `
+                
+                document.getElementById("result").innerHTML += '<h2>Items</h2><br>'
+
+                for(var i=0; i < myObj.items.length; i++){
+                    document.getElementById("result").innerHTML += `
+                    <p>--------------------------------------------</p>
+                    <p>Item : `+ i +`</p>
+                    <p>number : `+ myObj.items[i].number +`</p>
+                    <p>title : `+ myObj.items[i].title +`</p>
+                    `
+                }
+
+            }
+            
+        }
 };
 
 var text = $('#login').val();
