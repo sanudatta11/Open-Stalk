@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body  style="background: #a5a5a5">
     <div class="container">
         <div class="row">
         	<div class="col-md-12">
@@ -64,6 +64,8 @@ xmlhttp.onreadystatechange = function() {
                  <h4><strong><a href=`+myObj.items[0].user.html_url+`>`+ myObj.items[0].user.login +`</a></h4>
                  `
                  
+                document.getElementById("result").innerHTML += '<br><h2>Pull Requests = ' + myObj.total_count + ' of 4</h2><br>'
+
                  document.getElementById("result").innerHTML += '<h2>Items</h2><br>'
                  for(var i=0; i < myObj.items.length; i++){
                      document.getElementById("result").innerHTML += `
