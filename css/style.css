@@ -1,41 +1,32 @@
 body {
-  background-image: radial-gradient(circle, #3241a6 0, #202a6b 120%);
-  padding: 1em !important;
+  background-color: #f5f5f7 !important;
 }
 
 h2 {
-  font-family: 'Playfair Display', serif !important;
+  font-family: 'Open Sans', sans-serif;
   margin-top: .5em !important;
   font-weight: 700;
   font-size: 3.5em !important;
-  color: #fff !important;
-  animation: fadeIn 3s ease-in;
-}
-
-h4 {
-  font-family: 'Playfair Display', serif !important;
-  margin-top: 1em !important;
-  font-weight: 400;
-  font-size: 1em !important;
-  color: #fff !important;
-  animation: fadeIn 4s ease-in;
+  color: #545454 !important;
+  animation: fadeIn 2s ease-in;
 }
 
 h5 {
-  font-family: 'Playfair Display', serif !important;
-  font-weight: 700 !important;
-  font-size: 1em !important;
-  color: #ccc !important;
-  animation: fadeIn 5s ease-in;
+  font-family: 'Open Sans', sans-serif;
+
+  animation: fadeIn 2s ease-in;
 }
 
 p {
-  color: #fff !important;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em !important;
+  color: #636363 !important;
+  animation: fadeIn 2s ease-in;
 }
+
 
 @keyframes fadeIn {
   0% {opacity: 0;}
-  50% {opacity: 0.5;}
   100% {opacity: 1;}
 }
 
@@ -46,24 +37,29 @@ p {
 .form-control {
     padding: 0.7em 1em !important;
     font-size: 1.2em !important;
-    color: #fff !important;
+    color: #2970FB !important;
     background-color: rgba(225, 225, 225, 0.2) !important;
     border: 1px solid rgba(0,0,0,.15);
     border-radius: .25rem;
 }
 
-.btn {
-  padding: 0.9em 1em !important;
+
+
+.submit-btn {
+    padding: 0.9em 1em !important;
+    color: #fff;
+    background-color: #2970FB !important;
+    border-color: #2970FB !important;
 }
 
-.btn-secondary {
-    color: #fff;
-    background-color: #ff9566 !important;
-    border-color: #ff9566 !important;
+.submit-btn:hover {
+  cursor: pointer;
 }
+
+
 
 ::placeholder {
-  color: #ff9566 !important;
+  color: #2970FB !important;
 }
 
 .pr-card {
@@ -82,20 +78,35 @@ p {
 .MERGED { border: 1px solid #ae40fe; background-color: #FDF0FF; }
 
 .pr-title {
-   font-size: 1.75em;
+   font-size: 1em;
    font-weight: bolder;
    text-align: left;
 }
 .pr-title span { font-size: 0.75em; font-weight: normal; color: #333; }
 
 .pr-state {
-   text-align: left;
-   color: #666 !important;
-
-   margin-top: -45px;
+   color: white;
 }
 
 .pr-image {
    width: 100%;
    max-width: 100px;
+}
+
+.footer-note a{
+  color: #2970FB;
+  text-decoration-line: none;
+}
+
+.footer-note a:hover {
+  color: #636363;
+  text-decoration-line: none;
+}
+
+.space {
+  padding-bottom: 35px;
+}
+
+.fa-heart {
+  color: #2970FB;
 }
