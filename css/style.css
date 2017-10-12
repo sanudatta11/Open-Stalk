@@ -1,6 +1,6 @@
 body {
   background-image: radial-gradient(circle, #3241a6 0, #202a6b 120%);
-  padding: 5em !important;
+  padding: 1em !important;
 }
 
 h2 {
@@ -10,6 +10,15 @@ h2 {
   font-size: 3.5em !important;
   color: #fff !important;
   animation: fadeIn 3s ease-in;
+}
+
+h4 {
+  font-family: 'Playfair Display', serif !important;
+  margin-top: 1em !important;
+  font-weight: 400;
+  font-size: 1em !important;
+  color: #fff !important;
+  animation: fadeIn 4s ease-in;
 }
 
 h5 {
@@ -31,7 +40,7 @@ p {
 }
 
 .input-group {
-   margin: 3em 0 !important;
+   margin: 2em 0 !important;
 }
 
 .form-control {
