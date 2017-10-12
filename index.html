@@ -2,133 +2,153 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Check Hacktoberfest Status </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Hacktoberfest Status Check</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <meta name="description" content="A simple yet useful application to check pull request status/progress for Hacktoberfest">
+  <meta name="keywords" content="Hacktoberfest,fest,hacktober,PR,pull,request,4,github,digitalocean,digital, ocean,digital ocean, rowhitswami,rowhit,swami,up,for,grabs,check,progress,2017">
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-        	<div class="col-md-12">
-        		<h2 class="text-center">Check your Hacktoberfest 2017 Status</h2>
-        	</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center">Check your <br><a style="color:#FFF;" target="_blank" href="https://hacktoberfest.digitalocean.com/"><u>Hacktoberfest 2017</u></a> Status</h2>
+        <h4 class="text-center">This website is designed for <a class="link" style="color:#FFF;" target="_blank" href="https://hacktoberfest.digitalocean.com/"><u>Hacktoberfest 2017</u></a> organsied by <a style="color:#FFF;" target="_blank" href="https://www.digitalocean.com/Digital Ocean"><u>Digital Ocean</u></a>, which helps you to check your progress on the Hacktoberfest accurately. The public data is parsed from the Github and are shown in the webpage using Git REST API v3.</h4>
+      </div>
+    </div>
+    
+    <section>
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 col-sm-8">
+          <div class="input-group text-center">
+            <input type="text" id="login" class="form-control" placeholder="Enter your username" aria-label="Search for...">
+            <span class="input-group-btn">
+                <button onclick="getUserAndPR()" class="btn btn-secondary" type="button">Go!</button>
+            </span>
+          </div>
         </div>
-        <section>
-            <div class="row justify-content-center">
-            	 <div class="col-lg-4 col-md-6 col-sm-8">
-            	    <div class="input-group text-center">
-            	      <input type="text" id="login" class="form-control" placeholder="Enter your username" aria-label="Search for...">
-            	      <span class="input-group-btn">
-            	        <button onclick="getUserAndPR()" class="btn btn-secondary" type="button">Go!</button>
-            	      </span>
-            	    </div>
-            	  </div>
-            	</div>
-        </section>
+      </div>
+    </section>
 
-        <div id="result">
+    <div id="result" class="container">
 
-        </div>
+    </div>
 
     <footer>
-    	<h5 class="text-center">Made with &#10084; by Rohit Swami</h5>
+      <h5 class="text-center">Made with &#10084; by Rohit Swami</h5>
+      <h5 class="text-center">If you want to improve the UI and add more features to this tool, checkout the repo on <a style="color:#FFF;" target="_blank" href="https://github.com/rowhitswami/rowhitswami.github.io"><u>Github</u></h5>  
     </footer>
-</div>
+  </div>
 
-<script>
-function getUserAndPR() {
-  var user = document.getElementById('login').value
-  getUser(user, function(userObj) {
-    if (userObj.login != null) {
-      checkPR(user, function(prObj) {
-        generateElements(userObj, prObj)
-      })
-    } else {
-      generateElements(userObj, [])
-    }
-  })
-}
-
-function getUser(username, callbackFunc) {
-  var xmlhttp = new XMLHttpRequest();
-  var url = "https://api.github.com/users/" + username;
-  xmlhttp.onreadystatechange = function () {
-    var userObj = {
-      avatar_url: null,
-      login: null,
-      html_url: null
-    };
-    if (xmlhttp.readyState === XMLHttpRequest.DONE && (xmlhttp.status === 200 || xmlhttp.status === 404)) {
-      var response = JSON.parse(this.responseText)
-      if (response.message !== 'Not Found') { 
-        userObj.avatar_url = response.avatar_url;
-        userObj.login = response.login;
-        userObj.html_url = response.html_url;
+  <script>
+  function getUserAndPR() {
+    var user = document.getElementById('login').value
+    getUser(user, function(userObj) {
+      if (userObj.login != null) {
+        checkPR(user, function(prObj) {
+          generateElements(userObj, prObj)
+        })
+      } else {
+        generateElements(userObj, [])
       }
-      callbackFunc(userObj);
-    }
+    })
   }
-  xmlhttp.open("GET", url, true);
-  xmlhttp.send();
-}
 
-function checkPR(username, callbackFunc) {
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState === XMLHttpRequest.DONE && xmlhttp.status === 200) {
-      var myObj = JSON.parse(this.responseText);
-      callbackFunc(myObj.items)
+  function getUser(username, callbackFunc) {
+    var xmlhttp = new XMLHttpRequest();
+    var url = "https://api.github.com/users/" + username;
+    xmlhttp.onreadystatechange = function () {
+      var userObj = {
+        avatar_url: null,
+        login: null,
+        html_url: null
+      };
+      if (xmlhttp.readyState === XMLHttpRequest.DONE && (xmlhttp.status === 200 || xmlhttp.status === 404)) {
+        var response = JSON.parse(this.responseText)
+        if (response.message !== 'Not Found') { 
+          userObj.avatar_url = response.avatar_url;
+          userObj.login = response.login;
+          userObj.html_url = response.html_url;
+        }
+        callbackFunc(userObj);
+      }
+    }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+  }
+
+  function checkPR(username, callbackFunc) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState === XMLHttpRequest.DONE && xmlhttp.status === 200) {
+        var myObj = JSON.parse(this.responseText);
+        callbackFunc(myObj.items)
+      } else {
+        callbackFunc([])
+      }
+    }
+    var url = 'https://api.github.com/search/issues?q=-label:invalid+created:2017-09-30T00:00:00-12:00..2017-10-31T23:59:59-12:00+type:pr+is:public+author:' + username + '&per_page=300'
+
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+  };
+
+  function generateElements(userObj, prLists) {
+    var resultEl = document.getElementById("result");
+    resultEl.innerHTML = "";
+
+    // Create element for user section
+    var userSection = document.createElement("div");
+    userSection.className = "text-center user-section"
+    var userStr = "";
+    if (!userObj.avatar_url) {
+      userStr += `<img src="http://www.gravatar.com/avatar/?d=mm" width=80 height=80 style='border-radius:500px;'/>`;
+      userStr += `<h4><strong>User Not Found</strong></h4>`;
     } else {
-      callbackFunc([])
+      userStr += `<img src="${userObj.avatar_url}" width=80 height=80 style='border-radius:500px;'>`;
+      userStr += `<h4><strong><a href="${userObj.html_url}">${userObj.login}</a></strong></h4>`;
     }
-  }
-  var url = 'https://api.github.com/search/issues?q=-label:invalid+created:2017-09-30T00:00:00-12:00..2017-10-31T23:59:59-12:00+type:pr+is:public+author:' + username + '&per_page=300'
+    userSection.innerHTML = userStr;
 
-  xmlhttp.open("GET", url, true);
-  xmlhttp.send();
-};
-
-function generateElements(userObj, prLists) {
-  var resultEl = document.getElementById("result");
-  resultEl.innerHTML = "";
-
-  // Create element for user section
-  var userSection = document.createElement("div");
-  userSection.className = "text-center user-section"
-  var userStr = "";
-  if (!userObj.avatar_url) {
-    userStr += `<img src="http://www.gravatar.com/avatar/?d=mm" width=80 height=80 style='border-radius:500px;'/>`;
-    userStr += `<h4><strong>User Not Found</strong></h4>`;
-  } else {
-    userStr += `<img src="${userObj.avatar_url}" width=80 height=80 style='border-radius:500px;'>`;
-    userStr += `<h4><strong><a href="${userObj.html_url}">${userObj.login}</a></strong></h4>`;
-  }
-  userSection.innerHTML = userStr;
-
-  var itemsSection = document.createElement("div")
-  var itemStr = "";
-  if (prLists.length <= 0) {
-    // generate motivational text here so that users try contributing!
-    // put project github url here
-    itemStr = '<br> <br> <h4>Oops..!! It looks like you haven\'t made any Pull Request in Hacktoberfest 2017</h4><br><h6>Want to contribute to Open Source? Find projects with your interest here: <a href="https://github.com/search?q=label:hacktoberfest+state:open+type:issue">Hacktoberfest 2017 Projects</h6>';
-  } else {
-    itemStr += `<h2>Items</h2>`
-    for (var i = 0; i < prLists.length; i++) {
-      itemStr += `
-        <p>--------------------------------------------</p>
-        <p>Title : <a href="` + prLists[i].html_url + `">` + prLists[i].title + `</a></p>
-        <p>State : ` + prLists[i].state + `</p>`
+    var itemsSection = document.createElement("div")
+    var itemStr = "";
+    if (prLists.length <= 0) {
+      // generate motivational text here so that users try contributing!
+      // put project github url here
+      itemStr = '<br> <br> <h4>Oops..!! It looks like you haven\'t made any Pull Request in Hacktoberfest 2017</h4><br><h6>Want to contribute to Open Source? Find projects with your interest here: <a href="https://github.com/search?q=label:hacktoberfest+state:open+type:issue">Hacktoberfest 2017 Projects</h6>';
+    } else {
+      itemStr += `<h2>Items</h2>`
+      for (var i = 0; i < prLists.length; i++) {
+        var stateCheck;
+        prLists[i].state == "closed" ? stateCheck = "MERGED" : stateCheck = "PR";
+        
+        itemStr += `
+           <div class="row justify-content-center">
+              <div class="pr-card `+stateCheck+` col-sm-10 col-lg-8">
+                 <div class="row justify-content-center">
+                    <div class="col-sm-10 col-xs-11">
+                       <p class="pr-title"><span>TITLE:</span> <a href="`+prLists[i].html_url+`">`+ prLists[i].title +`</a></p><br>
+                       <p class="pr-state">state: `+ prLists[i].state +`</p>
+                    </div>
+                    <div class="col-sm-2 col-xs-1">
+                       <img class="pr-image img-responsive" src="img/git`+stateCheck+`.png">
+                    </div>
+                 </div>
+              </div>
+           </div> 
+        `
+      }
     }
-  }
-  itemsSection.innerHTML = itemStr;
+    itemsSection.innerHTML = itemStr;
 
-  resultEl.appendChild(userSection);
-  resultEl.appendChild(itemsSection);
-}
-</script>
+    resultEl.appendChild(userSection);
+    resultEl.appendChild(itemsSection);
+  }
+  </script>
 </body>
 </html>

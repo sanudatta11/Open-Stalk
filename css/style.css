@@ -1,6 +1,6 @@
 body {
   background-image: radial-gradient(circle, #3241a6 0, #202a6b 120%);
-  padding: 5em !important;
+  padding: 1em !important;
 }
 
 h2 {
@@ -10,6 +10,15 @@ h2 {
   font-size: 3.5em !important;
   color: #fff !important;
   animation: fadeIn 3s ease-in;
+}
+
+h4 {
+  font-family: 'Playfair Display', serif !important;
+  margin-top: 1em !important;
+  font-weight: 400;
+  font-size: 1em !important;
+  color: #fff !important;
+  animation: fadeIn 4s ease-in;
 }
 
 h5 {
@@ -36,7 +45,7 @@ a {
 }
 
 .input-group {
-   margin: 3em 0 !important;
+   margin: 2em 0 !important;
 }
 
 .form-control {
@@ -62,6 +71,36 @@ a {
   color: #ff9566 !important;
 }
 
-.user-section {
-  font-size: .8em !important;
+.pr-card {
+   border-radius: 4px;
+   border: 1px solid #BFBFBF;
+
+   background-color: #fff;
+
+   padding: 15px;
+   margin: 15px;
+   
+   box-shadow: 0px 0px 5px 0px #1A1A26;
+
+   color: #333
+}
+.MERGED { border: 1px solid #ae40fe; background-color: #FDF0FF; }
+
+.pr-title {
+   font-size: 1.75em;
+   font-weight: bolder;
+   text-align: left;
+}
+.pr-title span { font-size: 0.75em; font-weight: normal; color: #333; }
+
+.pr-state {
+   text-align: left;
+   color: #666 !important;
+
+   margin-top: -45px;
+}
+
+.pr-image {
+   width: 100%;
+   max-width: 100px;
 }
