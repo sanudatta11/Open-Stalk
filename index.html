@@ -98,6 +98,7 @@ function generateElements(userObj, prLists) {
 
   // Create element for user section
   var userSection = document.createElement("div");
+  userSection.className = "text-center user-section"
   var userStr = "";
   if (!userObj.avatar_url) {
     userStr += `<img src="http://www.gravatar.com/avatar/?d=mm" width=80 height=80 style='border-radius:500px;'/>`;
