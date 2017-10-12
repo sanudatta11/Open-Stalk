@@ -4,50 +4,45 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Check Hacktoberfest Status </title>
+  <title>Hacktoberfest Status Check</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <meta name="description" content="A simple yet useful application to check pull request status for Hacktoberfest">
-  <meta name="keywords" content="Hacktoberfest,fest,hacktober,PR,pull,request,4,github,digitalocean,digital, ocean,digital ocean, rowhitswami,rowhit,swami">
+  <meta name="description" content="A simple yet useful application to check pull request status/progress for Hacktoberfest">
+  <meta name="keywords" content="Hacktoberfest,fest,hacktober,PR,pull,request,4,github,digitalocean,digital, ocean,digital ocean, rowhitswami,rowhit,swami,up,for,grabs,check,progress,2017">
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-
-</head>
-
 <body>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <h2 class="text-center">Check your Hacktoberfest 2017 Status</h2>
+        <h2 class="text-center">Check your <br><a style="color:#FFF;" target="_blank" href="https://hacktoberfest.digitalocean.com/"><u>Hacktoberfest 2017</u></a> Status</h2>
+        <h4 class="text-center">This website is designed for <a class="link" style="color:#FFF;" target="_blank" href="https://hacktoberfest.digitalocean.com/"><u>Hacktoberfest 2017</u></a> organsied by <a style="color:#FFF;" target="_blank" href="https://www.digitalocean.com/Digital Ocean"><u>Digital Ocean</u></a>, which helps you to check your progress on the Hacktoberfest accurately. The public data is parsed from the Github and are shown in the webpage using Git REST API v3.</h4>
       </div>
     </div>
+    
     <section>
       <div class="row justify-content-center">
         <div class="col-lg-4 col-md-6 col-sm-8">
           <div class="input-group text-center">
             <input type="text" id="login" class="form-control" placeholder="Enter your username" aria-label="Search for...">
             <span class="input-group-btn">
-            	        <button onclick="checkPR()" class="btn btn-secondary" type="button">Go!</button>
-            	      </span>
+                <button onclick="checkPR()" class="btn btn-secondary" type="button">Go!</button>
+            </span>
           </div>
         </div>
       </div>
     </section>
-
     <div id="result">
 
     </div>
-
     <footer>
       <h5 class="text-center">Made with &#10084; by Rohit Swami</h5>
+      <h5 class="text-center">If you want to improve the UI and add more features to this tool, checkout the repo on <a style="color:#FFF;" target="_blank" href="https://github.com/rowhitswami/rowhitswami.github.io"><u>Github</u></h5>  
     </footer>
   </div>
-
-
-
 
   <script>
     function checkPR() {
@@ -73,13 +68,9 @@
                      <p>Title : <a href="` + myObj.items[i].html_url + `">` + myObj.items[i].title +
                 `</a></p>
                      <p>State : ` + myObj.items[i].state + `</p>
-
                      `
             }
           }
-
-
-
         }
       }
       var text = $('#login').val();
@@ -90,8 +81,5 @@
       xmlhttp.send();
     };
   </script>
-
-
 </body>
-
 </html>
