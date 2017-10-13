@@ -34,10 +34,10 @@ function checkPR() {
                   <div class="row justify-content-center">
                      <div class="pr-card ` + stateCheck + ` col-sm-10 col-lg-8">
                         <div class="row justify-content-center">
-                           <div class="col-sm-10 col-xs-11">
+                           <div class="col-sm-10 col-xs-11 pr-state">
                               <h5 class="pr-title"><a target="_blank" href="` + myObj.items[i].html_url + `">` + pr_title + `</a></h5>
                               <p class="repo-origin">to <b><a target="_blank" href="`+final_url+`">`+shorted_title+`</a></b></p>
-                              <button class="btn btn-success pr-state">` + myObj.items[i].state + `</button>
+                              <button>` + myObj.items[i].state + `</button>
                            </div>
                            <div class="col-sm-2 col-xs-1">
                               <img class="pr-image img-responsive" src="img/git` + stateCheck + `.png">

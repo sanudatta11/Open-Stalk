@@ -88,8 +88,11 @@ p {
   color: #333333; 
 }
 
-.pr-state {
+.pr-state button {
+  background-color: #3AAD31;
    color: white;
+   border: 0px;
+   border-radius: 25px;
 }
 
 .pr-image {
