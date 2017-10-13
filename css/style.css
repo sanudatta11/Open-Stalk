@@ -82,7 +82,11 @@ p {
    font-weight: bolder;
    text-align: left;
 }
-.pr-title span { font-size: 0.75em; font-weight: normal; color: #333; }
+.pr-title a { 
+  font-size: 1.25em;
+  font-weight: bold; 
+  color: #333333; 
+}
 
 .pr-state {
    color: white;
@@ -109,4 +113,8 @@ p {
 
 .fa-heart {
   color: #2970FB;
+}
+
+.repo-origin a {
+    color: #7C7C7C;
 }

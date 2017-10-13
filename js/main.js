@@ -15,14 +15,28 @@ function checkPR() {
                  `
                 for (var i = 0; i < myObj.items.length; i++) {
                     var stateCheck;
-                    myObj.items[i].state == "closed" ? stateCheck = "MERGED" : stateCheck = "PR";
 
+                    //url of origin repo
+                    var full_url = myObj.items[i].html_url;
+                    var final_url = full_url.substring(0, full_url.length-7);
+
+                    //title of origin repo
+                    var shorted_title = full_url.substring(18, full_url.length-7);
+                    
+
+                    //uppercasing the first letter of repo title
+                    var uppercaseFirstLetter = myObj.items[i].title.charAt(0).toUpperCase();
+                    var stringWithoutFirstLetter = myObj.items[i].title.slice(1)
+                    var pr_title = uppercaseFirstLetter + stringWithoutFirstLetter;
+
+                    myObj.items[i].state == "closed" ? stateCheck = "MERGED" : stateCheck = "PR";
                     document.getElementById("result").innerHTML += `
                   <div class="row justify-content-center">
                      <div class="pr-card ` + stateCheck + ` col-sm-10 col-lg-8">
                         <div class="row justify-content-center">
                            <div class="col-sm-10 col-xs-11">
-                              <p class="pr-title"><a href="` + myObj.items[i].html_url + `">` + myObj.items[i].title + `</a></p><br>
+                              <h5 class="pr-title"><a target="_blank" href="` + myObj.items[i].html_url + `">` + pr_title + `</a></h5>
+                              <p class="repo-origin">to <b><a target="_blank" href="`+final_url+`">`+shorted_title+`</a></b></p>
                               <button class="btn btn-success pr-state">` + myObj.items[i].state + `</button>
                            </div>
                            <div class="col-sm-2 col-xs-1">
@@ -39,7 +53,7 @@ function checkPR() {
     }
     var text = $('#login').val();
     var url = 'https://api.github.com/search/issues?q=-label:invalid+created:2017-09-30T00:00:00-12:00..2017-10-31T23:59:59-12:00+type:pr+is:public+author:' + text + '&per_page=4'
-    //console.log(url)
+    console.log(url)
 
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
