@@ -64,7 +64,6 @@ p {
 
 .pr-card {
    border-radius: 3px;
-   border: 1px solid #BFBFBF;
 
    background-color: #fff;
 
@@ -75,7 +74,7 @@ p {
 
    color: #333
 }
-.MERGED { border: 1px solid #ae40fe; background-color: #FDF0FF; }
+.MERGED { background-color: #FDF0FF; }
 
 .pr-title {
    font-size: 1em;
