@@ -1,13 +1,13 @@
 body {
-  background-color: #f5f5f7 !important;
+  background-color: #f5f5f7;
 }
 
 h2 {
   font-family: 'Open Sans', sans-serif;
-  margin-top: .5em !important;
+  margin-top: .5em;
   font-weight: 700;
-  font-size: 3.5em !important;
-  color: #545454 !important;
+  font-size: 3.5em;
+  color: #545454;
   animation: fadeIn 2s ease-in;
 }
 
@@ -19,8 +19,8 @@ h5 {
 
 p {
   font-family: 'Open Sans', sans-serif;
-  font-size: 1em !important;
-  color: #636363 !important;
+  font-size: 1em;
+  color: #636363;
   animation: fadeIn 2s ease-in;
 }
 
@@ -31,14 +31,14 @@ p {
 }
 
 .input-group {
-   margin: 2em 0 !important;
+   margin: 2em 0;
 }
 
 .form-control {
-    padding: 0.7em 1em !important;
-    font-size: 1.2em !important;
-    color: #2970FB !important;
-    background-color: rgba(225, 225, 225, 0.2) !important;
+    padding: 0.7em 1em;
+    font-size: 1.2em;
+    color: #2970FB;
+    background-color: rgba(225, 225, 225, 0.2);
     border: 1px solid rgba(0,0,0,.15);
     border-radius: .25rem;
 }
@@ -46,10 +46,10 @@ p {
 
 
 .submit-btn {
-    padding: 0.9em 1em !important;
+    padding: 0.9em 1em;
     color: #fff;
-    background-color: #2970FB !important;
-    border-color: #2970FB !important;
+    background-color: #2970FB;
+    border-color: #2970FB;
 }
 
 .submit-btn:hover {
@@ -59,7 +59,7 @@ p {
 
 
 ::placeholder {
-  color: #2970FB !important;
+  color: #2970FB;
 }
 
 .pr-card {
