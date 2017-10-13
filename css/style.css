@@ -63,19 +63,21 @@ p {
 }
 
 .pr-card {
-   border-radius: 4px;
-   border: 1px solid #BFBFBF;
+   border-radius: 3px;
 
-   background-color: #fff;
+   background-color: #2f2f2f;
 
    padding: 15px;
    margin: 15px;
    
-   box-shadow: 0px 0px 5px 0px #1A1A26;
+   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
+
+   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
+   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
 
    color: #333
 }
-.MERGED { border: 1px solid #ae40fe; background-color: #FDF0FF; }
+.MERGED { background-color: #FDF0FF; }
 
 .pr-title {
    font-size: 1em;
@@ -86,6 +88,7 @@ p {
 
 .pr-state {
    color: white;
+   animation: pulse 1s ease infinite;
 }
 
 .pr-image {
@@ -109,4 +112,18 @@ p {
 
 .fa-heart {
   color: #2970FB;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
