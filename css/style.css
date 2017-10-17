@@ -76,14 +76,15 @@ p {
 
    color: #FFFFFF
 }
-.MERGED { border: 1px solid #ae40fe; background-color: #FDF0FF; }
+.MERGED { background-color: #000000; }
 
 .pr-title {
    font-size: 1em;
    font-weight: bolder;
    text-align: left;
+   color: #000000; 
 }
-.pr-title a { 
+.pr-title a{ 
   font-size: 1.25em;
   font-weight: bold; 
   color: #000000; 
