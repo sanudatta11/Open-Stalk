@@ -11,8 +11,8 @@ function checkPR() {
             } else {
 
                 document.getElementById("result").innerHTML = `<div class="text-center"><img class="img-responsive" src=` + myObj.items[0].user.avatar_url + `width=130 height=130 style="border-radius:500px; margin: 0 auto;"></div>
-                 <h4 class="text-center"><strong><a href=` + myObj.items[0].user.html_url + `>` +
-                    myObj.items[0].user.login + `</a></storng></h4>
+                <h4 class="text-center"><strong><a href=` + myObj.items[0].user.html_url + `>` +
+                  myObj.items[0].user.login + `</a></storng></h4>
                   <div class="text-center">`+myObj.total_count+`/4 
                     <div class= "row"> 
                     <div class="col-md-2"></div>
@@ -26,7 +26,6 @@ function checkPR() {
                     </div>
                   </div>
                  `
-            
                 for (var i = 0; i < myObj.items.length; i++) {
                     var stateCheck;
 
@@ -45,8 +44,8 @@ function checkPR() {
 
                     myObj.items[i].state == "closed" ? stateCheck = "MERGED" : stateCheck = "PR";
                     document.getElementById("result").innerHTML += `
-                  <div class="row justify-content-center">
-                     <div class="pr-card ` + stateCheck + ` col-sm-10 col-lg-8">
+                    <div class="row justify-content-center">
+                      <div class="pr-card ` + stateCheck + ` col-sm-10 col-lg-8">
                         <div class="row justify-content-center">
                            <div class="col-sm-10 col-xs-11 pr-state">
                               <h5 class="pr-title"><a target="_blank" href="` + myObj.items[i].html_url + `">` + pr_title + `</a></h5>
@@ -57,9 +56,9 @@ function checkPR() {
                               <img class="pr-image img-responsive" src="img/git` + stateCheck + `.png">
                            </div>
                         </div>
-                     </div>
-                  </div> 
-               `
+                      </div>
+                    </div> 
+                  `
 
                 }
             }
