@@ -3,7 +3,8 @@ function checkPR() {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var myObj = JSON.parse(this.responseText);
-
+            var count = (myObj.total_count <= 4) ? myObj.total_count : '4';
+            var progressWidth = (count/4)*100;        
             if (myObj.total_count == 0) {
                 document.getElementById("result").innerHTML =
                     ` <br> <br> <h5 style="margin-top=-25px;" class="text-center">Oops..!! It looks like you haven't made any Pull Request in Hacktoberfest 2017</h5><br><h5 class="space text-center">Want to contribute to Open Source? Find projects with your interest here: <a href="https://github.com/search?q=label:hacktoberfest+state:open+type:issue">Hacktoberfest 2017 Projects</h5>`
@@ -11,8 +12,21 @@ function checkPR() {
 
                 document.getElementById("result").innerHTML = `<div class="text-center"><img class="img-responsive" src=` + myObj.items[0].user.avatar_url + `width=130 height=130 style="border-radius:500px; margin: 0 auto;"></div>
                  <h4 class="text-center"><strong><a href=` + myObj.items[0].user.html_url + `>` +
-                    myObj.items[0].user.login + `</a></h4>
+                    myObj.items[0].user.login + `</a></storng></h4>
+                  <div class="text-center">`+myObj.total_count+`/4 
+                    <div class= "row"> 
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width:${progressWidth}%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                    </div>
+                  </div>
                  `
+            
                 for (var i = 0; i < myObj.items.length; i++) {
                     var stateCheck;
 
