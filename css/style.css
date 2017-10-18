@@ -63,20 +63,19 @@ p {
 }
 
 .pr-card {
-   border-radius: 3px;
 
-   background-color: #00008B;
-
+   background-color: #FCCCC7;
+   border: 2px solid white;
    padding: 15px;
    margin: 15px;
    
-   -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
-   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
-   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.4);
+   -webkit-box-shadow: 10px 10px 50px rgba(0,0,0,0.4);
+   -moz-box-shadow: 10px 10px 50px rgba(0,0,0,0.4);
+   box-shadow: 10px 10px 50px rgba(0,0,0,0.4);
 
    color: #FFFFFF
 }
-.MERGED { background-color: #000000; }
+.MERGED { background-color: #B8F5B5; }
 
 .pr-title {
    font-size: 1em;
