@@ -10,8 +10,8 @@ function checkPR() {
                     ` <br> <br> <h5 style="margin-top=-25px;" class="text-center">Oops..!! It looks like you haven't made any Pull Request in Hacktoberfest 2017</h5><br><h5 class="space text-center">Want to contribute to Open Source? Find projects with your interest here: <a href="https://github.com/search?q=label:hacktoberfest+state:open+type:issue">Hacktoberfest 2017 Projects</h5>`
             } else {
 
-                document.getElementById("result").innerHTML = `<div class="container"><div class="row"><div class="col-md-6 text-center"><img class="img-responsive" src=` + myObj.items[0].user.avatar_url + `width=130 height=130 style="border-radius:500px; margin: 0 auto;"></div>
-                <div class="col-md-6"><h4>username: <strong><a href=` + myObj.items[0].user.html_url + `>` +
+                document.getElementById("result").innerHTML = `<div class="container"><div class="row"><div class="col-md-12 text-center"><img class="img-responsive" src=` + myObj.items[0].user.avatar_url + `width=130 height=130 style="border-radius:500px; margin: 0 auto;"></div>
+                <div class="col-md-12 text-center"><h4>username: <strong><a href=` + myObj.items[0].user.html_url + `>` +
                   myObj.items[0].user.login + `</a></storng></h4></div></div></div>
                   <div class="text-center">`+myObj.total_count+`/4
                     <div class= "row"> 
