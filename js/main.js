@@ -65,7 +65,7 @@ function checkPR() {
         }
     }
     var text = $('#login').val();
-    var url = 'https://api.github.com/search/issues?q=-label:invalid+created:2017-09-30T00:00:00-12:00..2017-10-31T23:59:59-12:00+type:pr+is:public+author:' + text + '&per_page=300'
+    var url = 'https://api.github.com/search/issues?q=-type:pr+is:public+author:' + text + '&per_page=300'
     console.log(url)
 
     xmlhttp.open("GET", url, true);
