@@ -77,6 +77,10 @@ p {
 }
 .MERGED { background-color: #B8F5B5; }
 
+.CLOSED { background-color: violet }
+
+.OPEN { background-color: orange }
+
 .pr-title {
    font-size: 1em;
    font-weight: bolder;

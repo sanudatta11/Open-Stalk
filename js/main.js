@@ -1,3 +1,6 @@
+var overall=[0,0,0];  //[OPEN,CLOSED,MERGED]
+var toMonth = new Date();
+toMonth = toMonth.getMonth();
 function checkPR() {
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange = function() {
@@ -40,14 +43,15 @@ function checkPR() {
             var pr_title = uppercaseFirstLetter + stringWithoutFirstLetter;
 
             myObj.items[i].state == "closed"
-              ? (stateCheck = "MERGED")
-              : (stateCheck = "PR");
+              ? (stateCheck = "CLOSED")
+              : (stateCheck = "OPEN");
             document.getElementById("result").innerHTML +=
               `
                       <div class="row justify-content-center">
                         <div class="pr-card ` +
               stateCheck +
-              ` col-sm-10 col-lg-8">
+              ` col-sm-10 col-lg-8" `+
+              `id="`+myObj.items[i].id+`">
                           <div class="row justify-content-center">
                              <div class="col-sm-2 col-xs-1">
                                 <img class="pr-image img-responsive" src="img/git` +
@@ -66,7 +70,7 @@ function checkPR() {
               shorted_title +
               `</a></b></p>
                                 <button>` +
-              myObj.items[i].state +
+              stateCheck +
               `</button>
                              </div>
                           </div>
@@ -77,18 +81,61 @@ function checkPR() {
         }
       }
     }
+    checkUnMerge();
   };
-  var text = $("#login").val();
+  window.text = $("#login").val();
   var url =
     "https://api.github.com/search/issues?q=-type:pr+is:public+author:" +
-    text +
+    window.text +
     "&per_page=300";
   console.log(url);
 
   xmlhttp.open("GET", url, true);
   xmlhttp.send();
 }
+function checkUnMerge()
+{
+  let cm = new XMLHttpRequest()
+  cm.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200) {
+      let rt = JSON.parse(this.responseText);
+      rt.items.forEach(element => {
+        let dv = document.getElementById(element.id);
+        if(dv!=null)
+        {
+          dv.classList.remove("CLOSED");
+          dv.classList.add("MERGED");
+          dv.lastElementChild.lastElementChild.lastElementChild.innerText = "MERGED";
+        }
+      });
+      overall=[document.getElementsByClassName("OPEN").length,document.getElementsByClassName("CLOSED").length,document.getElementsByClassName("MERGED").length]
+      drawPie(overall);
+    }
+  };
 
+  cm.open("GET", "https://api.github.com/search/issues?q=-type:pr+is:public+is:merged+author:" +
+  window.text +
+  "&per_page=300", true)
+  cm.send();
+}
 function wordInURL(url, word) {
   return new RegExp("\\b" + word + "\\b", "i").test(url);
+}
+
+function drawPie(counts){
+  var ctxP = document.getElementById("pieChart").getContext('2d');
+  var myPieChart = new Chart(ctxP, {
+  type: 'pie',
+  data: {
+  labels: ["OPEN", "CLOSED", "MERGED"],
+  datasets: [{
+  data: counts,
+  backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C"],
+  hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870"]
+  }]
+  },
+  options: {
+  responsive: true
+  }
+  });
 }
